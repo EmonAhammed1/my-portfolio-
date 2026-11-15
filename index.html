@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Emon Ahammed — Portfolio</title>
+  <meta name="description" content="Emon Ahammed — custom full-stack developer, WordPress & Shopify developer and AI automation builder. Choose how you want to explore the portfolio." />
+  <meta name="theme-color" content="#04070a" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;600;700&display=swap" /></noscript>
+  <link rel="stylesheet" href="fx.css?v=36" />
+  <link rel="stylesheet" href="gate.css?v=38" />
+</head>
+<body>
+  <!-- Background: soft moving light + a floor grid sliding toward the viewer -->
+  <div class="bg" aria-hidden="true">
+    <i class="glow g1"></i><i class="glow g2"></i><i class="glow g3"></i>
+    <div class="stars s1"></div><div class="stars s2"></div>
+    <div class="floor"><div class="grid"></div></div>
+    <canvas class="trail" id="trail"></canvas>
+    <div class="grain"></div>
+  </div>
+  <div class="corners" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+
+  <header class="hud">
+    <span class="hud-l">EA<b>://</b>portfolio</span>
+    <span class="hud-r"><i class="pulse"></i><span id="clock">--:--:--</span> · ONLINE</span>
+  </header>
+
+  <main class="gate">
+    <div class="id">
+      <p class="hello" id="hello">Portfolio of</p>
+      <h1 class="name glitch" id="name" data-text="EMON AHAMMED" aria-label="Emon Ahammed">EMON AHAMMED</h1>
+      <p class="role" id="role"></p>
+    </div>
+
+    <!-- 3D stage: rings of words orbit around a ring of portfolio previews -->
+    <section class="stage" id="stage" aria-label="Choose a portfolio style" aria-roledescription="carousel">
+      <div class="world" id="world">
+        <div class="platform" aria-hidden="true"><i></i><i></i><i></i></div>
+        <div class="ring words w-top" id="words-top" aria-hidden="true"></div>
+        <div class="ring slides" id="slides"></div>
+        <div class="ring words w-bot" id="words-bot" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <div class="cap" id="cap">
+      <p class="cap-top"><span class="no" id="cap-no">[01]</span> <span id="cap-tag"></span></p>
+      <h2 id="cap-name"></h2>
+      <p class="cap-desc" id="cap-desc"></p>
+      <div class="cap-row">
+        <button class="arrow" id="prev" type="button" aria-label="Previous portfolio">&larr;</button>
+        <a class="enter" id="enter" href="#">Enter <i>&rarr;</i></a>
+        <button class="arrow" id="next" type="button" aria-label="Next portfolio">&rarr;</button>
+      </div>
+      <div class="dots" id="dots" aria-hidden="true"></div>
+      <p class="hint">drag to spin · click a preview to open</p>
+    </div>
+  </main>
+
+  <script src="data.js?v=50"></script>
+  <script src="fx.js?v=37"></script>
+  <script src="gate.js?v=37"></script>
+</body>
+</html>

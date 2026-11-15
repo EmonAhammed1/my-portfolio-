@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Emon Ahammed — Developer Portfolio</title>
+  <meta name="description" content="Emon Ahammed — custom full-stack developer, WordPress & Shopify developer and AI automation builder." />
+  <meta name="theme-color" content="#030705" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;600;700&display=swap" /></noscript>
+  <link rel="stylesheet" href="../fx.css?v=29" />
+  <link rel="stylesheet" href="dev.css?v=23" />
+</head>
+<body>
+  <canvas id="rain" aria-hidden="true"></canvas>
+  <div class="vignette" aria-hidden="true"></div>
+  <div class="scanlines" aria-hidden="true"></div>
+  <div class="progress" id="progress" aria-hidden="true"></div>
+
+  <header class="nav" id="nav">
+    <a class="logo" href="#top">EA<b>://</b>dev</a>
+    <nav class="links" id="links" aria-label="Sections">
+      <a href="#about">about</a>
+      <a href="#skills">skills</a>
+      <a href="#experience">experience</a>
+      <a href="#projects">projects</a>
+      <a href="#terminal">terminal</a>
+      <a href="#contact">contact</a>
+    </nav>
+    <a class="switch" href="../" id="switch" title="Choose another portfolio style">&#8646; switch view</a>
+  </header>
+
+  <main id="top">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-l">
+        <p class="kicker" id="kicker">&gt; hello, world</p>
+        <h1 class="name glitch" id="name" data-text="EMON AHAMMED" aria-label="Emon Ahammed">EMON AHAMMED</h1>
+        <p class="rot"><span class="pr">$</span> <span id="rot" class="caret"></span></p>
+        <p class="pitch" id="pitch"></p>
+        <div class="cta">
+          <a class="btn solid" href="#skills" data-mag>View skills <i>&darr;</i></a>
+          <a class="btn" href="#terminal" data-mag>Open terminal <i>&gt;_</i></a>
+        </div>
+        <dl class="stats" id="stats"></dl>
+      </div>
+      <div class="hero-r" id="holo" aria-hidden="true">
+        <div class="holo">
+          <svg class="rings" viewBox="0 0 400 400">
+            <circle cx="200" cy="200" r="190" class="r1" />
+            <circle cx="200" cy="200" r="172" class="r2" />
+            <circle cx="200" cy="200" r="150" class="r3" />
+          </svg>
+          <div class="frame">
+            <img src="../mac/me-900.webp" alt="" width="900" height="675" decoding="async" />
+            <span class="sweep"></span>
+            <i class="c tl"></i><i class="c tr"></i><i class="c bl"></i><i class="c br"></i>
+          </div>
+          <span class="tag t1">ID · EMON.AHAMMED</span>
+          <span class="tag t2"><i class="pulse"></i>FULL-STACK DEVELOPER</span>
+          <span class="tag t3" id="coords">X:000 Y:000</span>
+        </div>
+      </div>
+      <a class="scroll" href="#about" aria-label="Scroll down"><span></span>scroll</a>
+    </section>
+
+    <!-- Tool marquee -->
+    <div class="marquee" aria-hidden="true"><div class="track" id="track"></div></div>
+
+    <!-- About -->
+    <section class="sec" id="about" data-reveal>
+      <header class="sh"><span class="n">01</span><h2 data-scramble>ABOUT</h2><span class="rule"></span></header>
+      <div class="about">
+        <div class="term-card">
+          <div class="tc-bar"><i></i><i></i><i></i><span>emon@portfolio: ~/about</span></div>
+          <div class="tc-body" id="about-body"></div>
+        </div>
+        <pre class="json" id="about-json" aria-label="Profile summary"></pre>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="sec" id="skills" data-reveal>
+      <header class="sh"><span class="n">02</span><h2 data-scramble>SKILLS &amp; STACK</h2><span class="rule"></span></header>
+      <div id="skill-groups"></div>
+    </section>
+
+    <!-- Experience -->
+    <section class="sec" id="experience" data-reveal>
+      <header class="sh"><span class="n">03</span><h2 data-scramble>EXPERIENCE</h2><span class="rule"></span></header>
+      <ol class="log" id="exp-log"></ol>
+    </section>
+
+    <!-- Projects -->
+    <section class="sec" id="projects" data-reveal>
+      <header class="sh"><span class="n">04</span><h2 data-scramble>PROJECTS</h2><span class="rule"></span></header>
+      <p class="sub">Live client builds. Pick a stack.</p>
+      <div class="ptabs" id="ptabs" role="tablist" aria-label="Project categories"></div>
+      <div class="projects" id="project-list" role="tabpanel"></div>
+      <button class="btn more-btn" id="p-all" type="button" data-mag><span id="p-all-label">View all</span> <i>&darr;</i></button>
+    </section>
+
+    <!-- Terminal -->
+    <section class="sec" id="terminal" data-reveal>
+      <header class="sh"><span class="n">05</span><h2 data-scramble>TERMINAL</h2><span class="rule"></span></header>
+      <p class="sub">A real one. Type <b>help</b> and press Enter.</p>
+      <div class="term" id="term">
+        <div class="tc-bar"><i></i><i></i><i></i><span>emon@portfolio: ~</span></div>
+        <div class="t-out" id="t-out" aria-live="polite"></div>
+        <label class="t-in"><span class="pr">visitor@emon:~$</span><input id="t-input" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Terminal command" /></label>
+      </div>
+      <div class="chips" id="t-chips"></div>
+    </section>
+
+    <!-- Contact -->
+    <section class="sec contact" id="contact" data-reveal>
+      <header class="sh"><span class="n">06</span><h2 data-scramble>CONTACT</h2><span class="rule"></span></header>
+      <p class="big glitch" id="big" data-text="LET'S BUILD SOMETHING.">LET'S BUILD SOMETHING.</p>
+      <p class="sub">Custom full-stack development, WordPress, Shopify and AI automation.</p>
+      <div class="cta" id="contact-cta"></div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <span>&copy; <span id="yr"></span> Emon Ahammed</span>
+    <span>vanilla html · css · js</span>
+    <a href="../">&#8646; other portfolio styles</a>
+  </footer>
+
+  <script src="../data.js?v=50"></script>
+  <script src="../matrix.js?v=29"></script>
+  <script src="../fx.js?v=37"></script>
+  <script src="../pro/icons.js?v=6"></script>
+  <script src="dev.js?v=23"></script>
+</body>
+</html>

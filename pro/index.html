@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Emon Ahammed — Web Developer</title>
+  <meta name="description" content="Emon Ahammed — full-stack developer: custom development, WordPress, Shopify and AI automation." />
+  <meta name="theme-color" content="#16161a" />
+  <script>/* apply the saved theme before first paint */ try { if (localStorage.getItem("ea-theme") === "dark") document.documentElement.classList.add("dark"); } catch (e) {}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" /></noscript>
+  <link rel="stylesheet" href="pro.css?v=9" />
+</head>
+<body>
+  <canvas id="dust" aria-hidden="true"></canvas>
+
+  <!-- Top bar -->
+  <header class="top">
+    <a class="brand" href="#home"><i data-ico="arrow-up-right"></i><span>emon<b>.dev</b></span></a>
+    <nav class="top-links" aria-label="Main">
+      <a href="#home" class="on">Home</a>
+      <a href="#projects">Projects</a>
+      <a href="https://emonahammed.shop/" target="_blank" rel="noopener" id="site-link">Website <i data-ico="arrow-up-right"></i></a>
+    </nav>
+    <button class="search" id="search-btn" type="button" aria-label="Search sections and skills">
+      <i data-ico="search"></i><span>Search...</span><kbd id="kbd">Ctrl K</kbd>
+    </button>
+    <span class="clock"><i></i><span id="clock">--:--:--</span></span>
+    <button class="icon-btn" id="theme" type="button" aria-label="Toggle dark mode"><i class="moon" data-ico="moon"></i><i class="sun" data-ico="sun"></i></button>
+    <a class="switch" href="../" title="Choose another portfolio style"><i data-ico="layers"></i>SWITCH</a>
+  </header>
+
+  <!-- Floating section rail -->
+  <aside class="rail" id="rail" aria-label="Sections">
+    <span class="rail-top"><i data-ico="menu"></i></span>
+    <nav id="rail-nav"></nav>
+    <a class="rail-switch" href="../" data-tip="Other styles" aria-label="Other portfolio styles"><i data-ico="layers"></i></a>
+    <span class="rail-bar"><i id="rail-prog"></i></span>
+  </aside>
+
+  <main class="page">
+    <!-- Hero -->
+    <section class="hero" id="home">
+      <div class="hero-l">
+        <p class="status rise" style="--i:0"><i></i>Full-stack developer · 1+ year building for the web</p>
+        <h1 class="rise" style="--i:1">Hi, I'm <em class="nm"><span id="first"></span><svg viewBox="0 0 200 14" preserveAspectRatio="none" aria-hidden="true"><path d="M3 9c20-7 38 6 58 0s38-7 58-1 40 5 78-3"/></svg></em></h1>
+        <p class="typed rise" style="--i:2"><span id="typed"></span><i class="caret"></i></p>
+        <p class="lead rise" style="--i:3" id="lead"></p>
+        <div class="btns rise" style="--i:4">
+          <a class="btn primary" href="#contact" data-mag>Contact me <i data-ico="arrow-right"></i></a>
+          <a class="btn" href="#projects" data-mag>View projects</a>
+        </div>
+        <div class="works rise" style="--i:5"><span>Works with</span><div id="works"></div></div>
+      </div>
+      <div class="hero-r rise" style="--i:3">
+        <figure class="portrait" id="portrait">
+          <div class="photo"><img src="../mac/me-900.webp" alt="Emon Ahammed" width="900" height="675" fetchpriority="high" decoding="async" /></div>
+          <figcaption><span id="cap-name"></span><span id="cap-role"></span></figcaption>
+          <span class="stamp"><b>1+</b>year<br>building</span>
+        </figure>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="sec" id="about" data-reveal>
+      <header class="sh"><h2>About <em>me</em></h2></header>
+      <div class="about">
+        <div class="about-r">
+          <p class="pull rv">I build fast, custom web projects from scratch, and automate the repetitive work around them.</p>
+          <div id="about-text"></div>
+        </div>
+        <ol class="what" id="what" aria-label="What I do"></ol>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="sec" id="skills" data-reveal>
+      <header class="sh"><h2>Technical <em>expertise</em></h2><p>The platforms, languages and tools I actually work with.</p></header>
+      <div id="skill-groups"></div>
+    </section>
+
+    <!-- Experience -->
+    <section class="sec" id="experience" data-reveal>
+      <header class="sh"><h2>Experience</h2></header>
+      <ol class="timeline" id="timeline"></ol>
+    </section>
+
+    <!-- Projects -->
+    <section class="sec" id="projects" data-reveal>
+      <header class="sh"><h2>Selected <em>projects</em></h2><p>Recent builds across custom web apps, WordPress, Shopify and AI automation.</p></header>
+      <div class="tabs rv" id="proj-tabs" role="tablist" aria-label="Project categories"><span class="tab-ink" id="tab-ink" aria-hidden="true"></span></div>
+      <div class="projects" id="project-list" role="tabpanel"></div>
+      <button class="btn line" id="view-all" type="button" data-mag><span id="view-all-label">View all projects</span> <i data-ico="arrow-right"></i></button>
+    </section>
+
+    <!-- Contact -->
+    <section class="sec" id="contact" data-reveal>
+      <header class="sh"><h2>Get in <em>touch</em></h2><p>Questions, ideas, or just want to say hello? Send me a message.</p></header>
+      <div class="contact">
+        <div class="panel rv">
+          <h3>Contact information</h3>
+          <ul class="info" id="info"></ul>
+        </div>
+        <form class="panel form rv" style="--i:1" id="form" novalidate>
+          <label>Name<input name="name" type="text" placeholder="Your name" autocomplete="name" required /></label>
+          <label>Email<input name="email" type="email" placeholder="your@email.com" autocomplete="email" required /></label>
+          <label>Message<textarea name="message" rows="5" placeholder="Your message" required></textarea></label>
+          <button class="btn primary wide send-btn" id="send-btn" type="submit">
+            <span class="send-idle">Send message <i data-ico="rocket"></i></span>
+            <span class="send-fly" aria-hidden="true">
+              <span class="send-trail"></span>
+              <span class="send-status">Sending message...</span>
+              <span class="send-craft"><i class="send-flame"></i><i data-ico="rocket"></i></span>
+            </span>
+            <span class="send-done" aria-hidden="true">
+              <svg class="ui send-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
+              <span>Message sent!</span>
+            </span>
+          </button>
+          <p class="form-note" id="form-note" role="status"></p>
+        </form>
+      </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="sec" id="stats" data-reveal>
+      <header class="sh"><h2>In <em>numbers</em></h2></header>
+      <div class="stats rv" id="stat-list"></div>
+    </section>
+
+    <footer class="foot">
+      <span>&copy; <span id="yr"></span> Emon Ahammed</span>
+      <a href="../">Other portfolio styles <i data-ico="arrow-right"></i></a>
+    </footer>
+  </main>
+
+  <!-- Mobile section bar -->
+  <nav class="tabbar" id="tabbar" aria-label="Sections"></nav>
+
+  <!-- Command palette -->
+  <div class="palette" id="palette" hidden>
+    <div class="pal-box" role="dialog" aria-modal="true" aria-label="Search">
+      <input id="pal-input" type="text" placeholder="Jump to a section or skill..." autocomplete="off" spellcheck="false" />
+      <ul id="pal-list"></ul>
+      <p class="pal-hint"><kbd>↑</kbd><kbd>↓</kbd> to move · <kbd>Enter</kbd> to go · <kbd>Esc</kbd> to close</p>
+    </div>
+  </div>
+
+  <script src="../data.js?v=50"></script>
+  <script src="icons.js?v=6"></script>
+  <script src="pro.js?v=11"></script>
+</body>
+</html>

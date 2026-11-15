@@ -1,0 +1,71 @@
+/* Shared look for the entry page and the developer portfolio. */
+:root {
+  --bg: #030705;
+  --green: #00ff84;
+  --green-dim: #0bbf6a;
+  --cyan: #5ef2ff;
+  --ink: #e9fff3;
+  --muted: #86a596;
+  --line: rgba(0, 255, 132, .18);
+  --panel: rgba(4, 12, 9, .84);
+  --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  --sans: "Space Grotesk", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { background: var(--bg); color-scheme: dark; }
+body { font-family: var(--mono); color: var(--ink); -webkit-font-smoothing: antialiased; }
+a { color: inherit; }
+::selection { background: var(--green); color: #00140a; }
+
+/* Rain canvas + readability layers */
+#rain { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; display: block; }
+.vignette { position: fixed; inset: 0; z-index: 1; pointer-events: none; }
+.scanlines {
+  position: fixed; inset: 0; z-index: 90; pointer-events: none; opacity: .5;
+  background: repeating-linear-gradient(to bottom, rgba(0,0,0,0) 0 2px, rgba(0,0,0,.16) 2px 3px);
+  mix-blend-mode: multiply;
+}
+
+/* Custom cursor */
+.has-cursor, .has-cursor a, .has-cursor button { cursor: none; }
+.cur-dot, .cur-ring { position: fixed; left: 0; top: 0; z-index: 200; pointer-events: none; opacity: 0; transition: opacity .3s; will-change: transform; }
+.cur-dot { width: 6px; height: 6px; margin: -3px 0 0 -3px; border-radius: 50%; background: var(--green); box-shadow: 0 0 10px var(--green); }
+.cur-ring { width: 34px; height: 34px; margin: -17px 0 0 -17px; }
+.cur-ring::before {
+  content: ""; position: absolute; inset: 0; border: 1px solid rgba(0,255,132,.6); border-radius: 50%;
+  transition: transform .25s cubic-bezier(.2,.9,.3,1.4), border-radius .25s, background .25s, border-color .25s;
+}
+.cur-ring.hot::before { transform: scale(1.55) rotate(45deg); border-radius: 6px; background: rgba(0,255,132,.08); border-color: var(--green); }
+
+/* Page-leave wipe */
+.wipe { position: fixed; inset: 0; z-index: 300; display: flex; pointer-events: all; }
+.wipe i { flex: 1; background: linear-gradient(to bottom, #00140a, var(--bg) 30%, var(--bg)); border-bottom: 3px solid var(--green); box-shadow: 0 6px 24px rgba(0,255,132,.7); transform: translateY(-102%); animation: wipeDown .46s cubic-bezier(.7,0,.3,1) forwards; }
+@keyframes wipeDown { to { transform: translateY(0); } }
+
+/* Glitch: two offset colour copies flicker over the text (needs data-text). */
+.glitch { position: relative; }
+.glitch::before, .glitch::after { content: attr(data-text); position: absolute; inset: 0; pointer-events: none; opacity: 0; }
+.glitch::before { color: var(--cyan); }
+.glitch::after { color: #ff3d7f; }
+.glitch.go::before { animation: gl1 2.8s steps(1) infinite; }
+.glitch.go::after { animation: gl2 2.8s steps(1) infinite; }
+@keyframes gl1 {
+  0%, 91%, 100% { opacity: 0; }
+  92% { opacity: .9; transform: translate(-4px, 1px); clip-path: inset(12% 0 58% 0); }
+  94% { opacity: .9; transform: translate(3px, -1px); clip-path: inset(62% 0 8% 0); }
+  96% { opacity: .9; transform: translate(-2px, 0); clip-path: inset(38% 0 36% 0); }
+}
+@keyframes gl2 {
+  0%, 91%, 100% { opacity: 0; }
+  92% { opacity: .8; transform: translate(4px, -1px); clip-path: inset(55% 0 20% 0); }
+  94% { opacity: .8; transform: translate(-3px, 1px); clip-path: inset(8% 0 70% 0); }
+  96% { opacity: .8; transform: translate(2px, 0); clip-path: inset(30% 0 44% 0); }
+}
+
+.caret::after { content: "▍"; color: var(--green); animation: blink 1s steps(1) infinite; margin-left: 2px; }
+@keyframes blink { 50% { opacity: 0; } }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
+  .scanlines { display: none; }
+}
