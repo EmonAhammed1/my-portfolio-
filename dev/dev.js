@@ -163,7 +163,7 @@
     experience: () => { P.experience.forEach((e) => print(`${e.role} — ${e.where} (${e.when})`)); go("#experience"); },
     stack: () => print(allTools.join(" · ")),
     projects: () => { tabs.forEach((t) => { const l = P.projects.filter((p) => p.cat === t.cat && !p.placeholder); if (!l.length) return; print(`${t.name.toUpperCase()} (${l.length})`, "ok"); print(l.slice(0, 5).map((p) => "  - " + p.title).join("\n") + (l.length > 5 ? `\n  ... and ${l.length - 5} more` : "")); }); go("#projects"); },
-    contact: () => { print("email:  " + P.email + "\ngithub: " + P.github, "ok"); },
+    contact: () => { print("web:    " + P.website + "\nemail:  " + P.email + "\ngithub: " + P.github, "ok"); },
     mac: () => { print("launching desktop ...", "ok"); FX.leave("../mac/", rain); },
     home: () => { print("returning ...", "ok"); FX.leave("../", rain); },
     matrix: () => { rain.burst(1); print("wake up, visitor ...", "ok"); },

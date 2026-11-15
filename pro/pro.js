@@ -163,7 +163,8 @@
   /* ---------- Contact ---------- */
   const ghUser = P.github.replace(/\/$/, "").split("/").pop();
   $("info").innerHTML =
-    `<li><a href="mailto:${esc(P.email)}"><span class="ic">${ui("mail")}</span>${esc(P.email)}</a></li>
+    `<li><a href="${esc(P.website)}"><span class="ic">${ui("globe")}</span>${esc(P.website.replace(/^https?:\/\//, ""))}</a></li>
+     <li><a href="mailto:${esc(P.email)}"><span class="ic">${ui("mail")}</span>${esc(P.email)}</a></li>
      <li><a href="${esc(P.github)}" target="_blank" rel="noopener"><span class="ic">${brand("github")}</span>github.com/${esc(ghUser)}</a></li>
      <li><span><span class="ic">${ui("briefcase")}</span>${esc(P.role)}</span></li>`;
   const form = $("form"), note = $("form-note"), sendBtn = $("send-btn");

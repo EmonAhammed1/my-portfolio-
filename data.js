@@ -3,6 +3,7 @@ window.PORTFOLIO = {
   name: "Emon Ahammed",
   role: "Web Developer & AI Automation",
   email: "contact@emonahammed.shop",
+  website: "https://emonahammed.shop",
   github: "https://github.com/EmonAhammed1",
 
   items: [
