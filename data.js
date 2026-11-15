@@ -9,7 +9,7 @@ window.PORTFOLIO = {
     { id: "about", title: "ABOUT ME", cover: "photo", cat: "about",
       subtitle: "Emon Ahammed",
       type: "Developer > Custom Development, WordPress, Shopify & AI",
-      text: "Hi, I'm Emon. I do custom full-stack development, frontend and backend, and build custom WordPress and Shopify themes, plugins and apps. I also build AI automations with n8n, generate AI video, and work with MCP servers and AI agents. 1+ year of hands-on experience.",
+      text: "Hi, I'm Emon. I do custom full-stack development, frontend and backend, and build custom WordPress and Shopify themes, plugins and apps. I also build AI automations with n8n, generate AI video, and work with MCP servers and AI agents. 2+ years of hands-on experience.",
       tools: "JavaScript, PHP, Python, WordPress, Shopify, n8n, MCP" },
 
     { id: "wp-themes", title: "WORDPRESS\nTHEMES", cover: "wpTheme", cat: "wp",
@@ -108,7 +108,7 @@ window.PORTFOLIO = {
       text: "I build both sides of a product, the interface and the server behind it, as one coherent project.",
       tools: "JavaScript, PHP, Python, SQL" },
 
-    { id: "experience", title: "1+ YEAR", cover: "year", cat: "about",
+    { id: "experience", title: "2+ YEARS", cover: "year", cat: "about",
       subtitle: "Experience",
       type: "Experience",
       text: "Started as a Trainee Developer at BD Calling Academy (3 months), then joined Pixelora Studio, a branch of Betopia Limited: WordPress Executive & Team Lead (6 months), Shopify Executive & Team Lead (4 months) and Executive, Full-Stack Web Developer (6 months).",
@@ -152,11 +152,11 @@ window.PORTFOLIO = {
 
   // Entry page: the portfolio styles a visitor can pick. Add another object to add another style.
   modes: [
-    { key: "mac", name: "Quick & Simple", tag: "macOS desktop", href: "mac/", preview: "previews/mac.webp?v=2",
+    { key: "mac", name: "Quick & Simple", tag: "macOS desktop", href: "mac/", preview: "previews/mac.webp?v=3",
       desc: "A Mac-style desktop. Click icons, open windows, play with the dock. See everything in a minute." },
-    { key: "dev", name: "Developer", tag: "full portfolio", href: "dev/", preview: "previews/dev.webp?v=2",
+    { key: "dev", name: "Developer", tag: "full portfolio", href: "dev/", preview: "previews/dev.webp?v=3",
       desc: "The full technical portfolio: skills, stack, projects and a live terminal you can type in." },
-    { key: "pro", name: "Professional", tag: "clean & light", href: "pro/", preview: "previews/pro.webp?v=2",
+    { key: "pro", name: "Professional", tag: "clean & light", href: "pro/", preview: "previews/pro.webp?v=3",
       desc: "A clean, light portfolio with a sidebar: about, skills, experience, projects and contact." },
   ],
 

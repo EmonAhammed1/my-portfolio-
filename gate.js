@@ -214,7 +214,7 @@
     requestAnimationFrame(frame);
     await FX.scramble(name, P.name.toUpperCase(), 1000);
     name.classList.add("go");
-    FX.type($("role"), P.role + " · 1+ year building for the web", 60);
+    FX.type($("role"), P.role + " · 2+ years building for the web", 60);
     $("cap").classList.add("in");
   }, FX.reduce ? 0 : 200);
 })();

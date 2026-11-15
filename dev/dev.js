@@ -23,7 +23,7 @@
   /* ---------- Hero ---------- */
   $("pitch").textContent = PR.lead;
   $("stats").innerHTML = [
-    ["1", "+", "year experience"],
+    ["2", "+", "years experience"],
     [P.projects.filter((p) => !p.placeholder).length, "+", "live projects"],
     [P.stack.length, "", "skill areas"],
     [techCount, "+", "tools & tech"],
@@ -96,7 +96,7 @@
   const S = (v) => `<span class="s">"${esc(v)}"</span>`;
   const arr = (list) => `<span class="p">[</span>${list.map(S).join('<span class="p">, </span>')}<span class="p">]</span>`;
   $("about-json").innerHTML = '<span class="p">{</span>\n' +
-    J("name", S(P.name)) + J("role", S("Full-stack developer")) + J("experience", S("1+ year")) + J("company", S("Pixelora Studio (Betopia Limited)")) +
+    J("name", S(P.name)) + J("role", S("Full-stack developer")) + J("experience", S("2+ years")) + J("company", S("Pixelora Studio (Betopia Limited)")) +
     J("focus", arr(P.projectTabs.map((g) => g.name))) +
     J("languages", arr(["JavaScript", "TypeScript", "PHP", "Python"])) +
     J("liveProjects", `<span class="nmb">${P.projects.filter((p) => !p.placeholder).length}</span>`) +

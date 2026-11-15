@@ -194,7 +194,7 @@
   });
 
   /* ---------- Stats (real numbers from data.js) ---------- */
-  $("stat-list").innerHTML = [[1, "+", "Year of experience"], [techCount, "", "Skills & technologies"], [P.stack.length, "", "Skill areas"], [P.projects.length, "", P.projects.every((p) => p.placeholder) ? "Case studies on the way" : "Projects"]]
+  $("stat-list").innerHTML = [[2, "+", "Years of experience"], [techCount, "", "Skills & technologies"], [P.stack.length, "", "Skill areas"], [P.projects.length, "", P.projects.every((p) => p.placeholder) ? "Case studies on the way" : "Projects"]]
     .map(([n, suf, l]) => `<div class="stat"><b><span data-count="${n}">0</span><i>${suf}</i></b><span>${l}</span></div>`).join("");
   function countUp(el) {
     const to = +el.dataset.count;

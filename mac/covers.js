@@ -160,8 +160,8 @@
       <rect width="120" height="156" fill="#fff"/>
       <rect width="120" height="38" fill="#ff3b30"/>
       <text x="60" y="26" text-anchor="middle" font-family="-apple-system,Helvetica,sans-serif" font-size="14" font-weight="700" fill="#fff" letter-spacing="1">EXPERIENCE</text>
-      <text x="60" y="106" text-anchor="middle" font-family="-apple-system,Helvetica,sans-serif" font-size="58" font-weight="300" fill="#1d1d1f">1+</text>
-      <text x="60" y="136" text-anchor="middle" font-family="-apple-system,Helvetica,sans-serif" font-size="13" font-weight="600" fill="#8e8e93" letter-spacing="2">YEAR</text>`),
+      <text x="60" y="106" text-anchor="middle" font-family="-apple-system,Helvetica,sans-serif" font-size="58" font-weight="300" fill="#1d1d1f">2+</text>
+      <text x="60" y="136" text-anchor="middle" font-family="-apple-system,Helvetica,sans-serif" font-size="13" font-weight="600" fill="#8e8e93" letter-spacing="2">YEARS</text>`),
   };
 
   // Render a cover as an <svg> (or <img> for the photo cover).
