@@ -181,9 +181,9 @@ window.PORTFOLIO = {
     // In order: first role at the top. "when" is shown as the period label.
     { role: "WordPress Executive & Team Lead", where: "Betopia Limited", when: "6 months",
       text: "Led the WordPress team: custom theme and plugin development, WooCommerce stores, code reviews and client delivery." },
-    { role: "Shopify Team Lead", where: "Betopia Limited", when: "4 months",
+    { role: "Shopify Executive & Team Lead", where: "Betopia Limited", when: "4 months",
       text: "Led the Shopify team: custom Liquid themes with tailored sections and metafields, custom apps, and store launches." },
-    { role: "Custom Full-Stack Developer", where: "Betopia Limited", when: "6 months",
+    { role: "Executive, Full-Stack Web Developer", where: "Betopia Limited", when: "6 months",
       text: "Building custom web apps end to end: responsive frontends, APIs, databases and deployment, in JavaScript, PHP and Python." },
     { role: "AI Automation Builder", where: "n8n, AI agents, MCP & AI video", when: "Ongoing",
       text: "Creating n8n workflows and AI agents that remove repetitive work, connecting models to tools through MCP servers, and generating AI video." },
