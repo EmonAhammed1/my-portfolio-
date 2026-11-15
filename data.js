@@ -111,8 +111,8 @@ window.PORTFOLIO = {
     { id: "experience", title: "1+ YEAR", cover: "year", cat: "about",
       subtitle: "Experience",
       type: "Experience",
-      text: "More than one year of custom full-stack development and real WordPress and Shopify projects, plus AI automation work.",
-      tools: "Full Stack, WordPress, Shopify, AI" },
+      text: "Started as a Trainee Developer at BD Calling Academy (3 months), then joined Pixelora Studio, a branch of Betopia Limited: WordPress Executive & Team Lead (6 months), Shopify Executive & Team Lead (4 months) and Executive, Full-Stack Web Developer (6 months).",
+      tools: "BD Calling Academy, Pixelora Studio, Betopia Limited" },
 
     { id: "projects", title: "PROJECTS", cover: "folder", cat: "about",
       subtitle: "Live client work",
@@ -152,11 +152,11 @@ window.PORTFOLIO = {
 
   // Entry page: the portfolio styles a visitor can pick. Add another object to add another style.
   modes: [
-    { key: "mac", name: "Quick & Simple", tag: "macOS desktop", href: "mac/", preview: "previews/mac.webp",
+    { key: "mac", name: "Quick & Simple", tag: "macOS desktop", href: "mac/", preview: "previews/mac.webp?v=2",
       desc: "A Mac-style desktop. Click icons, open windows, play with the dock. See everything in a minute." },
-    { key: "dev", name: "Developer", tag: "full portfolio", href: "dev/", preview: "previews/dev.webp",
+    { key: "dev", name: "Developer", tag: "full portfolio", href: "dev/", preview: "previews/dev.webp?v=2",
       desc: "The full technical portfolio: skills, stack, projects and a live terminal you can type in." },
-    { key: "pro", name: "Professional", tag: "clean & light", href: "pro/", preview: "previews/pro.webp",
+    { key: "pro", name: "Professional", tag: "clean & light", href: "pro/", preview: "previews/pro.webp?v=2",
       desc: "A clean, light portfolio with a sidebar: about, skills, experience, projects and contact." },
   ],
 
@@ -179,11 +179,17 @@ window.PORTFOLIO = {
   // Professional portfolio: experience timeline. Replace with your real roles, companies and dates.
   experience: [
     // In order: first role at the top. "when" is shown as the period label.
-    { role: "WordPress Executive & Team Lead", where: "Betopia Limited", when: "6 months",
+    // links (optional): any name in "where" listed here is shown as a link.
+    { role: "Trainee Developer", where: "BD Calling Academy", when: "3 months",
+      text: "Hands-on developer training: building real web projects and working through frontend and backend tasks with a team." },
+    { role: "WordPress Executive & Team Lead", where: "Pixelora Studio, a branch of Betopia Limited", links: { "Pixelora Studio": "https://pixelora.studio/company", "Betopia Limited": "https://www.betopialimited.com/" },
+      when: "6 months",
       text: "Led the WordPress team: custom theme and plugin development, WooCommerce stores, code reviews and client delivery." },
-    { role: "Shopify Executive & Team Lead", where: "Betopia Limited", when: "4 months",
+    { role: "Shopify Executive & Team Lead", where: "Pixelora Studio, a branch of Betopia Limited", links: { "Pixelora Studio": "https://pixelora.studio/company", "Betopia Limited": "https://www.betopialimited.com/" },
+      when: "4 months",
       text: "Led the Shopify team: custom Liquid themes with tailored sections and metafields, custom apps, and store launches." },
-    { role: "Executive, Full-Stack Web Developer", where: "Betopia Limited", when: "6 months",
+    { role: "Executive, Full-Stack Web Developer", where: "Pixelora Studio, a branch of Betopia Limited", links: { "Pixelora Studio": "https://pixelora.studio/company", "Betopia Limited": "https://www.betopialimited.com/" },
+      when: "6 months",
       text: "Building custom web apps end to end: responsive frontends, APIs, databases and deployment, in JavaScript, PHP and Python." },
     { role: "AI Automation Builder", where: "n8n, AI agents, MCP & AI video", when: "Ongoing",
       text: "Creating n8n workflows and AI agents that remove repetitive work, connecting models to tools through MCP servers, and generating AI video." },
@@ -195,6 +201,7 @@ window.PORTFOLIO = {
     // Custom Full-Stack & Web Apps (VPS + Issue Sheet CMS)
     {"cat":"code","icon":"nextdotjs","image":"previews/projects/cuply.webp","title":"Cuply","desc":"Australia-wide café discovery platform: search independent cafés and roasters, browse menus, and a paid listing plan with a free trial for café owners.","tech":["Next.js","React","Custom build"],"link":"https://cuply.com.au/"},
     {"cat":"code","icon":"react","image":"previews/projects/houseandpaw.webp","title":"House & Paw","desc":"South African marketplace connecting pet owners with ID-verified pet, house and security sitters: city and category search, verified reviews, in-app messaging and zero booking commission.","tech":["React","Vite","Custom build"],"link":"https://houseandpaw.co.za/"},
+    {"cat":"code","icon":"javascript","image":"previews/projects/pixelora-3d.webp","title":"Pixelora Studio 3D Experience","desc":"Scroll-driven 3D website built with Three.js: a lit night-time scene of the Pixelora Studio building that you walk into section by section, with ambient sound and animated lights.","tech":["Three.js","WebGL","JavaScript"],"link":"https://scroll-rho-three.vercel.app/"},
     {"cat":"code","icon":"nextdotjs","image":"previews/projects/mako-marketing.webp","title":"Mako Marketing","desc":"High-performance B2B digital marketing agency web application with interactive animations and lead audit flows.","tech":["Next.js","React","Motion UI"],"link":"https://www.makomarketing.ca/","placeholder":false},
     {"cat":"code","icon":"nextdotjs","image":"previews/projects/elite-teen-counseling.webp","title":"Elite Teen Counseling","desc":"Custom healthcare and therapy practice web app with statewide booking flows and service pages.","tech":["Next.js","Booking Flow","Custom UI"],"link":"https://eliteteencounseling.com/","placeholder":false},
     {"cat":"code","icon":"react","image":"previews/projects/prestigehcs.webp","title":"Prestige Health Care Services","desc":"Home-care provider site for Ohio: private duty nursing, waiver and disability programmes, case-referral and care-request flows, and a case manager hub.","tech":["React","Vite","Custom build"],"link":"https://www.prestigehcs.com/"},
@@ -319,8 +326,8 @@ window.PORTFOLIO = {
 
   // Dock "apps" — clicking one shows an alert and can highlight related icons.
   apps: {
-    wp: { name: "WordPress", msg: "Custom themes, custom plugins and WooCommerce. 1+ year of hands-on WordPress work.", button: "Show work" },
-    shopify: { name: "Shopify", msg: "Custom Shopify themes in Liquid and custom apps for merchants.", button: "Show work" },
+    wp: { name: "WordPress", msg: "Custom themes, custom plugins and WooCommerce. Led the WordPress team at Pixelora Studio (Betopia Limited).", button: "Show work" },
+    shopify: { name: "Shopify", msg: "Custom Shopify themes in Liquid and custom apps. Led the Shopify team at Pixelora Studio (Betopia Limited).", button: "Show work" },
     code: { name: "Custom Dev", msg: "Custom full-stack development: frontend, backend, APIs, plus Python scripts and services.", button: "Show work" },
     ai: { name: "n8n", msg: "Workflow executed successfully. AI automation, AI agents, AI video and MCP.", button: "Show work" },
     warn: { name: "Warning", msg: "Side effects of Emon's work include faster websites and far fewer manual tasks.", button: "Contact Emon", cancel: "Cancel" },

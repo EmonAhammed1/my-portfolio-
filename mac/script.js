@@ -417,6 +417,8 @@
     makeWin(it.id, "Information about: " + it.title.replace("\n", " ").toLowerCase().replace(/\b\w/g, (c) => c.toUpperCase()), html, "", src);
   }
 
+  // Experience "where" text, with any names listed in e.links turned into links.
+  const whereHtml = (e) => Object.entries(e.links || {}).reduce((h, [name, url]) => h.split(esc(name)).join(`<a href="${esc(url)}" target="_blank" rel="noopener">${esc(name)}</a>`), esc(e.where));
   /* ---- Notes (About) ---- */
   function openNotes(src) {
     const d = new Date().toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
@@ -431,7 +433,7 @@
       <h3>Skills</h3>
       ${P.stack.map((g) => `<p><b>${esc(g.name)}</b><br><span class="muted">${g.items.map((it) => esc(it[0])).join(" · ")}</span></p>`).join("")}
       <h3>Experience</h3>
-      <ul>${P.experience.map((e) => `<li><b>${esc(e.role)}</b> · ${esc(e.where)} <span class="muted">(${esc(e.when)})</span></li>`).join("")}</ul>
+      <ul>${P.experience.map((e) => `<li><b>${esc(e.role)}</b> · ${whereHtml(e)} <span class="muted">(${esc(e.when)})</span></li>`).join("")}</ul>
       <p>See my work in <a href="#" data-open="projects">Projects 📁</a>, or say hi in Mail ✉️</p>`, "notes", src);
     wins.get("notes")?.querySelector('[data-open="projects"]')?.addEventListener("click", (e) => { e.preventDefault(); openProjects(dockBtns.finder); });
   }

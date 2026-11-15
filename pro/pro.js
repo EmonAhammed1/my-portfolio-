@@ -87,8 +87,10 @@
       return `<article class="tile rv" style="--i:${i + 1}${ic.color ? `;--c:${ic.color}` : ""}"><span class="ic"${dim ? " data-dim" : ""}>${ic.html}</span><div><h4>${esc(name)}</h4><small>${esc(note)}</small></div></article>`;
     }).join("") + "</div></div>").join("");
 
+  // Experience "where" text, with any names listed in e.links turned into links.
+  const whereHtml = (e) => Object.entries(e.links || {}).reduce((h, [name, url]) => h.split(esc(name)).join(`<a href="${esc(url)}" target="_blank" rel="noopener">${esc(name)}</a>`), esc(e.where));
   /* ---------- Experience ---------- */
-  $("timeline").innerHTML = P.experience.map((e, i) => `<li class="rv" style="--i:${i}"><div class="when">${esc(e.when)}</div><div><h4>${esc(e.role)}</h4><div class="meta">${esc(e.where)}</div><p>${esc(e.text)}</p></div></li>`).join("");
+  $("timeline").innerHTML = P.experience.map((e, i) => `<li class="rv" style="--i:${i}"><div class="when">${esc(e.when)}</div><div><h4>${esc(e.role)}</h4><div class="meta">${whereHtml(e)}</div><p>${esc(e.text)}</p></div></li>`).join("");
 
   /* ---------- Projects: category tabs + "All", 6 cards initially, "View all" expands cleanly ---------- */
   const FALLBACK_ICON = { code: "react", wp: "wordpress", shopify: "shopify", ai: "n8n" };

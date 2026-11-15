@@ -96,7 +96,7 @@
   const S = (v) => `<span class="s">"${esc(v)}"</span>`;
   const arr = (list) => `<span class="p">[</span>${list.map(S).join('<span class="p">, </span>')}<span class="p">]</span>`;
   $("about-json").innerHTML = '<span class="p">{</span>\n' +
-    J("name", S(P.name)) + J("role", S("Full-stack developer")) + J("experience", S("1+ year")) +
+    J("name", S(P.name)) + J("role", S("Full-stack developer")) + J("experience", S("1+ year")) + J("company", S("Pixelora Studio (Betopia Limited)")) +
     J("focus", arr(P.projectTabs.map((g) => g.name))) +
     J("languages", arr(["JavaScript", "TypeScript", "PHP", "Python"])) +
     J("liveProjects", `<span class="nmb">${P.projects.filter((p) => !p.placeholder).length}</span>`) +
@@ -108,10 +108,12 @@
     g.items.map(([name, key, note], i) => `<article class="card tile rv" style="--i:${i + 1}" data-hot>${icon(key)}<div><h3>${esc(name)}</h3><div class="st">${esc(note)}</div></div></article>`).join("") +
     "</div></div>").join("");
 
+  // Experience "where" text, with any names listed in e.links turned into links.
+  const whereHtml = (e) => Object.entries(e.links || {}).reduce((h, [name, url]) => h.split(esc(name)).join(`<a href="${esc(url)}" target="_blank" rel="noopener">${esc(name)}</a>`), esc(e.where));
   /* ---------- Experience: a commit-log style timeline ---------- */
   $("exp-log").innerHTML = P.experience.map((e, i) => `<li class="rv" style="--i:${i}">
       <span class="hash">${(0x9f3a1c + i * 0x1b2f7).toString(16).slice(0, 7)}</span>
-      <div><h3>${esc(e.role)}</h3><div class="meta">${esc(e.where)} <span>· ${esc(e.when)}</span></div><p>${esc(e.text)}</p></div></li>`).join("");
+      <div><h3>${esc(e.role)}</h3><div class="meta">${whereHtml(e)} <span>· ${esc(e.when)}</span></div><p>${esc(e.text)}</p></div></li>`).join("");
 
   /* ---------- Projects: tabs per stack, six cards each, then "View all" ---------- */
   const tabs = P.projectTabs.filter((t) => P.projects.some((p) => p.cat === t.cat));

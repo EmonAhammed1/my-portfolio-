@@ -248,3 +248,7 @@ main, .foot { position: relative; z-index: 10; }
 .more-btn[hidden] { display: none; }
 .more-btn.open i { display: inline-block; transform: rotate(180deg); }
 @media (max-width: 720px) { .log li { grid-template-columns: 1fr; gap: 4px; } .projects { grid-template-columns: 1fr; } }
+
+/* Company links in Experience */
+.log .meta a { color: var(--green); text-decoration: none; border-bottom: 1px dashed rgba(0,255,132,.45); }
+.log .meta a:hover { border-bottom-style: solid; }
