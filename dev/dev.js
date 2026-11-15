@@ -146,8 +146,8 @@
 
   /* ---------- Contact ---------- */
   $("contact-cta").innerHTML =
-    (P.email ? `<a class="btn solid" href="mailto:${esc(P.email)}" data-mag>Email me <i>&rarr;</i></a>` : "") +
-    `<a class="btn ${P.email ? "" : "solid"}" href="${esc(P.website)}" target="_blank" rel="noopener" data-mag>Visit website <i>&nearr;</i></a>
+    `<a class="btn solid" href="mailto:${esc(P.email)}" data-mag>Email me <i>&rarr;</i></a>
+     <a class="btn" href="${esc(P.github)}" target="_blank" rel="noopener" data-mag>GitHub <i>&nearr;</i></a>
      <a class="btn" href="../mac/" id="to-mac" data-mag>Mac-style version <i>&rarr;</i></a>`;
   $("yr").textContent = new Date().getFullYear();
 
@@ -163,7 +163,7 @@
     experience: () => { P.experience.forEach((e) => print(`${e.role} — ${e.where} (${e.when})`)); go("#experience"); },
     stack: () => print(allTools.join(" · ")),
     projects: () => { tabs.forEach((t) => { const l = P.projects.filter((p) => p.cat === t.cat && !p.placeholder); if (!l.length) return; print(`${t.name.toUpperCase()} (${l.length})`, "ok"); print(l.slice(0, 5).map((p) => "  - " + p.title).join("\n") + (l.length > 5 ? `\n  ... and ${l.length - 5} more` : "")); }); go("#projects"); },
-    contact: () => { print("website: " + P.website + (P.email ? "\nemail:   " + P.email : ""), "ok"); },
+    contact: () => { print("email:  " + P.email + "\ngithub: " + P.github, "ok"); },
     mac: () => { print("launching desktop ...", "ok"); FX.leave("../mac/", rain); },
     home: () => { print("returning ...", "ok"); FX.leave("../", rain); },
     matrix: () => { rain.burst(1); print("wake up, visitor ...", "ok"); },

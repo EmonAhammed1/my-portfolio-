@@ -158,13 +158,13 @@
   renderProjects();
   addEventListener("resize", moveInk);
   document.fonts?.ready.then(moveInk);
-  $("site-link").href = P.website;
+  $("site-link").href = P.github;
 
   /* ---------- Contact ---------- */
-  const host = P.website.replace(/^https?:\/\//, "").replace(/\/$/, "");
+  const ghUser = P.github.replace(/\/$/, "").split("/").pop();
   $("info").innerHTML =
-    (P.email ? `<li><a href="mailto:${esc(P.email)}"><span class="ic">${ui("mail")}</span>${esc(P.email)}</a></li>` : "") +
-    `<li><a href="${esc(P.website)}" target="_blank" rel="noopener"><span class="ic">${ui("globe")}</span>${esc(host)}</a></li>
+    `<li><a href="mailto:${esc(P.email)}"><span class="ic">${ui("mail")}</span>${esc(P.email)}</a></li>
+     <li><a href="${esc(P.github)}" target="_blank" rel="noopener"><span class="ic">${brand("github")}</span>github.com/${esc(ghUser)}</a></li>
      <li><span><span class="ic">${ui("briefcase")}</span>${esc(P.role)}</span></li>`;
   const form = $("form"), note = $("form-note"), sendBtn = $("send-btn");
   form.addEventListener("input", (e) => { if (e.target.classList?.contains("bad")) e.target.classList.remove("bad"); });

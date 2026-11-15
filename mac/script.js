@@ -19,6 +19,7 @@
     ai: tile("#2a0d18", "#a8324f", "n8n", "#ff6d8a", 13),
     warn: `<svg viewBox="0 0 40 40"><path d="M20 4 L38 35 H2Z" fill="#ffcc00" stroke="#e0a800" stroke-width="1.5" stroke-linejoin="round"/><rect x="18.3" y="14" width="3.4" height="12" rx="1.7" fill="#1d1d1f"/><circle cx="20" cy="30" r="2" fill="#1d1d1f"/></svg>`,
     finder: `<svg viewBox="0 0 40 40"><defs><linearGradient id="fd" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6ec1ff"/><stop offset="1" stop-color="#2b8cf0"/></linearGradient></defs><path d="M3 10a3 3 0 0 1 3-3h9l3 3h16a3 3 0 0 1 3 3v19a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3Z" fill="#1f78d6"/><path d="M3 15a3 3 0 0 1 3-3h28a3 3 0 0 1 3 3v17a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3Z" fill="url(#fd)"/><path d="M9 21h22M9 26h15" stroke="#fff" stroke-width="2.2" stroke-linecap="round" opacity=".85"/></svg>`,
+    github: `<svg viewBox="0 0 40 40"><rect x="1" y="1" width="38" height="38" rx="9" fill="#1d1d1f" stroke="#3a3a3c"/><g transform="translate(8 8)"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" fill="#fff"/></g></svg>`,
     notes: `<svg viewBox="0 0 40 40"><rect x="1" y="1" width="38" height="38" rx="9" fill="#fff" stroke="#ddd"/><path d="M1 10 V10 a9 9 0 0 1 9-9 h20 a9 9 0 0 1 9 9Z" fill="#ffd52e"/><rect x="1" y="10" width="38" height="3" fill="#f5c400"/>${[19, 25, 31].map((y) => `<rect x="7" y="${y}" width="26" height="1.3" fill="#d9d9d9"/>`).join("")}</svg>`,
     photos: `<svg viewBox="0 0 40 40"><rect x="1" y="1" width="38" height="38" rx="9" fill="#fff" stroke="#e5e5e5"/>${["#f5a623", "#f8e71c", "#7ed321", "#50e3c2", "#4a90e2", "#9013fe", "#e91e63", "#ff5e3a"].map((c, i) => `<ellipse cx="20" cy="12.5" rx="4.6" ry="7.5" fill="${c}" opacity=".78" transform="rotate(${i * 45} 20 20)"/>`).join("")}</svg>`,
     web: `<svg viewBox="0 0 40 40"><defs><linearGradient id="sf" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5ac8fa"/><stop offset="1" stop-color="#0a60ff"/></linearGradient></defs><rect x="1" y="1" width="38" height="38" rx="9" fill="#fff" stroke="#e5e5e5"/><circle cx="20" cy="20" r="15" fill="url(#sf)"/>${Array.from({ length: 12 }, (_, i) => `<line x1="20" y1="6.5" x2="20" y2="8.5" stroke="#fff" stroke-width="1" transform="rotate(${i * 30} 20 20)"/>`).join("")}<path d="M27 13 L21.5 21.5 L13 27 L18.5 18.5Z" fill="#fff"/><path d="M27 13 L21.5 21.5 L18.5 18.5Z" fill="#ff3b30"/></svg>`,
@@ -37,7 +38,7 @@
     { id: "notes", label: "Notes", fn: openNotes },
     { id: "photos", label: "Photos", fn: openPhotos },
     "sep",
-    { id: "web", label: "Website", fn: () => window.open(P.website, "_blank", "noopener") },
+    { id: "github", label: "GitHub", fn: () => window.open(P.github, "_blank", "noopener") },
     { id: "mail", label: "Mail", fn: openMail },
     "sep",
     { id: "trash", label: "Trash", fn: openTrash },
@@ -51,7 +52,7 @@
     if (d.id === "trash") b.classList.add("bin");
     b.addEventListener("click", () => {
       // macOS-style launch bounce for apps that open a window
-      if (["finder", "notes", "photos", "mail", "web"].includes(d.id) && !wins.has(d.id)) {
+      if (["finder", "notes", "photos", "mail"].includes(d.id) && !wins.has(d.id)) {
         b.classList.remove("bounce"); void b.offsetWidth; b.classList.add("bounce");
       }
       d.fn(b);
@@ -495,12 +496,11 @@
       <div class="row"><label>To:</label><input value="${esc(P.name)}" readonly></div>
       <div class="row"><label>Subject:</label><input id="m-sub" placeholder="Project inquiry"></div>
       <textarea id="m-body" placeholder="Hi Emon, I need a custom Shopify theme…"></textarea>
-      <div class="actions"><a href="${esc(P.website)}" target="_blank" rel="noopener">${esc(P.website.replace(/^https?:\/\//, "").replace(/\/$/, ""))} ↗</a><button class="btn" id="m-send">Send</button></div>`, "mail", src);
+      <div class="actions"><a href="${esc(P.github)}" target="_blank" rel="noopener">GitHub ↗</a><button class="btn" id="m-send">Send</button></div>`, "mail", src);
     w.querySelector("#m-send")?.addEventListener("click", () => {
       const sub = w.querySelector("#m-sub").value || "Project inquiry";
       const body = w.querySelector("#m-body").value;
-      if (P.email) location.href = `mailto:${P.email}?subject=${encodeURIComponent(sub)}&body=${encodeURIComponent(body)}`;
-      else window.open(P.website, "_blank", "noopener");
+      location.href = `mailto:${P.email}?subject=${encodeURIComponent(sub)}&body=${encodeURIComponent(body)}`;
     });
   }
 

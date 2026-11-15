@@ -2,8 +2,8 @@
 window.PORTFOLIO = {
   name: "Emon Ahammed",
   role: "Web Developer & AI Automation",
-  website: "https://emonahammed.shop/",
-  email: "", // e.g. "hello@yourdomain.com" — enables the Send button in Mail
+  email: "contact@emonahammed.shop",
+  github: "https://github.com/EmonAhammed1",
 
   items: [
     { id: "about", title: "ABOUT ME", cover: "photo", cat: "about",
